@@ -1,11 +1,15 @@
 package com.example.cospace.Model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 import java.net.PasswordAuthentication;
 
+@Entity
+@Table(name="besucher")
 public class Besucher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

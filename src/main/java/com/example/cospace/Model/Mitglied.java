@@ -1,26 +1,32 @@
 package com.example.cospace.Model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+import org.springframework.context.annotation.Primary;
 
+@Entity
+@Table(name = "mitglied")
 public class Mitglied {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
+
     private String firstname;
     private String lastname;
     private String mail;
     private String password;
-    Buchung buchung;
+    private Buchung buchung;
 
-    public Mitglied(Long id, String firstname, String lastname, String mail, String password, Buchung buchung) {
+    public Mitglied() {
+
+    }
+
+    public Mitglied(Long id, String firstname, String lastname, String mail, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
         this.password = password;
-        this.buchung = buchung;
     }
 
     public Long getId() {
